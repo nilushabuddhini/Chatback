@@ -1,5 +1,7 @@
 const express = require('express')
 
+const cors = require('cors')
+
 const dotenv = require('dotenv').config()
 
 const chatroutes = require('./routes/routes')
@@ -16,6 +18,12 @@ app.use((req, res,next)=>{
 })
 
 app.use('/api/chat', chatroutes)
+
+app.use(cors(
+    origin[
+        "http://localhost:3000","https://chat-with-earth.onrender.com"
+    ]
+))
 
 mongoose.connect(
     process.env.MONGO_URI
