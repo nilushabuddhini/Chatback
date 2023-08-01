@@ -19,11 +19,11 @@ app.use((req, res,next)=>{
 
 app.use('/api/chat', chatroutes)
 
-app.use(cors({
-    origin:[
-        "http://localhost:3000","https://chat-with-earth.onrender.com"
-    ]
-}))
+// app.use(cors({
+//     origin:[
+//         "https://chat-with-earth.onrender.com"
+//     ]
+// }))
 
 mongoose.connect(
     process.env.MONGO_URI
