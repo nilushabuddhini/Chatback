@@ -2,9 +2,9 @@ const express = require('express')
 
 const dotenv = require('dotenv').config()
 
-const chatroutes = require('./routes/routes')
-
 const { default: mongoose } = require('mongoose')
+
+const chatroutes = require('./routes/routes')
 
 const app = express()
 
