@@ -1,6 +1,10 @@
 const express = require('express')
 
+
+
 const dotenv = require('dotenv').config()
+
+const path = require('path')
 
 const cors = require('cors')
 
@@ -20,6 +24,12 @@ app.use((req, res,next)=>{
 app.use('/chat', chatroutes)
 
 app.use(cors())
+
+app.use(express.static(path.join(__dirname, '../client/build')))
+
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname, '../client/build/index.html'))
+})
 
 mongoose.connect(
     process.env.MONGO_URI
