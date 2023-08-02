@@ -17,12 +17,9 @@ app.use((req, res,next)=>{
     next()
 })
 
-app.use('/api/chat', chatroutes)
+app.use('/chat', chatroutes)
 
-app.use(cors({
-    origin:'https://chat-with-earth.onrender.com',
-    methods:['GET', 'POST']
-  }))
+app.use(cors())
 
 mongoose.connect(
     process.env.MONGO_URI
